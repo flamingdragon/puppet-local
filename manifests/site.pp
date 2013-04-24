@@ -13,7 +13,7 @@ node 'default-local-mac' {
   }
 } 
 
-node 'bo-ntp001.local.mac' inherits default-local-mac {
+node /^bo-ntp\d+$/ inherits default-local-mac {
   include ntp
 }
 
