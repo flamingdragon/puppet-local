@@ -1,18 +1,18 @@
 node 'default-local-mac' {
   include sshkeys
-  include resolv-conf
-  package {'nc'
-    ensure   => present
+  include resolv_conf
+  
+  package {'nc':
+    ensure   => present,
   }
-  package {'openssh-clients'
-    ensure   => present
+  package {'openssh-clients':
+    ensure   => present,
   }
-  package {'bind-utils'
-    ensure   => present
+  package {'bind-utils':
+    ensure   => present,
   }
 } 
 
-node 'bo-ntp001.local.mac' {
-  include sshkeys
+node 'bo-ntp001.local.mac' inherits default-local-mac {
   include ntp
 }
