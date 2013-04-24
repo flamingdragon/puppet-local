@@ -1,6 +1,5 @@
 node 'default-local-mac' {
   include sshkeys
-  include resolv_conf
   
   package {'nc':
     ensure   => present,
@@ -15,6 +14,7 @@ node 'default-local-mac' {
 
 node /^bo-ntp\d+$/ inherits default-local-mac {
   include ntp
+  include resolv_conf
 }
 
 node /^dns\d+$/ inherits default-local-mac {
